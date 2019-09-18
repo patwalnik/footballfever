@@ -1,0 +1,47 @@
+<div class="container">
+    <table class="table table-striped">
+        <thead class=thead-dark>
+          <tr>
+            <th scope="col">Player Name</th>
+            <th scope="col">Jersey No</th>
+            <th scope="col">Country</th>
+            <th scope="col">Age</th>
+            <th scope="col">Goals</th>
+            <th scope="col">Matches</th>
+            <th scope="col">Field Position</th>
+          </tr>
+        </thead>
+        <tbody *ngFor= "let player of players">
+          <tr [routerLink] ="['/player/profile', player.player_key ]">
+            <th scope="row">{{player.player_name}}</th>
+            <td>{{player.player_number}}</td>
+            <td>{{player.player_country}}</td>
+            <td>{{player.player_age}}</td>
+            <td>{{player.player_goals}}</td>
+            <td>{{player.player_match_played}}</td>
+            <td>{{player.player_type}}</td>
+          </tr>
+         
+        </tbody>
+      </table>
+      <table class="table table-striped">
+            <thead class=thead-dark>
+              <tr>
+                <th scope="col">Coach Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Country</th>
+                
+              </tr>
+            </thead>
+            <tbody *ngFor= "let coach of coaches">
+              <tr>
+                <th scope="row">{{coach.coach_name}}</th>
+                <td>{{coach.coach_age}}</td>
+                <td>{{coach.coach_country}}</td>
+                
+              </tr>
+             
+            </tbody>
+          </table>
+    
+</div>

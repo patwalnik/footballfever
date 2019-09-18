@@ -1,0 +1,15 @@
+
+
+<div class="container">
+        <div class="row" *ngFor='let team of teams'>
+                <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{team.team_badge}}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{team.team_name}}</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a [routerLink] ="['/players',team.team_name]" [state]="[team.players , team.coaches]"  class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+      </div>
+
+     
