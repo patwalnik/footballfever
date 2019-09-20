@@ -1,4 +1,60 @@
-<div class="container">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Search</span>
+                </div>
+                <input type="text" [(ngModel)] ="searchPlayer" class="form-control" placeholder="Search by player name or Country"  aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn-secondary" disabled>Sort By : </button>            
+                <div class="btn-group" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Name
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" (click)="sortByName($event , 'asc')">A to Z</a>
+                    <a class="dropdown-item" (click)="sortByName($event , 'dec')">Z to A</a>
+                  </div>
+                </div>
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Goals
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                      <a class="dropdown-item" (click)="sortByGoals($event , 'asc')">Low to high</a>
+                      <a class="dropdown-item" (click)="sortByGoals($event , 'dec')">High to low</a>
+                    </div>
+                </div>
+                  <div class="btn-group" role="group">
+                      <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Age
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="dropdown-item" (click)="sortByAge($event , 'asc')">Low to high</a>
+                        <a class="dropdown-item" (click)="sortByAge($event , 'dec')">High to low</a>
+                      </div>
+                  </div>
+                  <div class="col">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                      <button type="button" class="btn btn-secondary" disabled>Sort By : </button>            
+                      <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Filter
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                          <a class="dropdown-item" (click)="filterBy($event , 'lt2')">Less than 2 matches</a>
+                          <a class="dropdown-item" (click)="filterBy($event , 'gt2')">graeter than 2 matches</a>
+                        </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+      </div>
+  
     <table class="table table-striped">
         <thead class=thead-dark>
           <tr>
@@ -11,7 +67,7 @@
             <th scope="col">Field Position</th>
           </tr>
         </thead>
-        <tbody *ngFor= "let player of players">
+        <tbody *ngFor= "let player of players | playerFilterPipe:searchPlayer">
           <tr [routerLink] ="['/player/profile', player.player_key ]">
             <th scope="row">{{player.player_name}}</th>
             <td>{{player.player_number}}</td>

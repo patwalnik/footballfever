@@ -1,1 +1,32 @@
-<p>profile works!</p>
+<div class="jumbotron" *ngFor= "let data of playerData">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{data.player_name}}
+          <span class="badge badge-primary badge-pill">name</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{data.player_country}}
+          <span class="badge badge-primary badge-pill">country</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+         {{data.player_age}}
+          <span class="badge badge-primary badge-pill">age</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{data.player_match_played}}
+             <span class="badge badge-primary badge-pill">matches</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{data.player_goals}}
+             <span class="badge badge-primary badge-pill">goals</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{data.player_yellow_cards}}
+             <span class="badge badge-primary badge-pill">yellow cards</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{data.team_name}}
+             <span class="badge badge-primary badge-pill">Team</span>
+        </li>
+      </ul>
+  </div>

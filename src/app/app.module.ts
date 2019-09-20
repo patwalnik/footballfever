@@ -8,8 +8,15 @@ import { ContainerComponent } from './components/container/container.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PlayerPageComponent } from './components/player-page/player-page.component';
-import { ModalComponent } from './components/player-page/modal/modal.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PlayerFilterPipePipe } from './pipe/player-filter-pipe.pipe';
+import { FormsModule } from '@angular/forms';
+import { EventsComponent } from './components/events/events.component';
+import { ChampionshipComponent } from './components/championship/championship.component';
+import { NplPremierDivisionComponent } from './components/npl-premier-division/npl-premier-division.component';
+import { TrimDataPipe } from './pipe/trim-data.pipe';
+import { CountPipe } from './pipe/count.pipe';
+
 
 @NgModule({
   declarations: [
@@ -18,13 +25,19 @@ import { ProfileComponent } from './components/profile/profile.component';
     ContainerComponent,
     HomepageComponent,
     PlayerPageComponent,
-    ModalComponent,
-    ProfileComponent
+    ProfileComponent,
+    PlayerFilterPipePipe,
+    EventsComponent,
+    ChampionshipComponent,
+    NplPremierDivisionComponent,
+    TrimDataPipe,
+    CountPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ApiCallService],
   bootstrap: [AppComponent]
